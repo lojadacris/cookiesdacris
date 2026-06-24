@@ -340,12 +340,6 @@
       color: var(--caramel);
       opacity: 0.7;
     }
-    .flavor-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
 
     .flavor-info { padding: 1.6rem 1.75rem 2rem; }
     .flavor-tag {
@@ -379,34 +373,6 @@
       padding: 0.3rem 0.9rem;
       border-radius: 100px;
     }
-    .flavor-price {
-      margin-top: 1.1rem;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--brown-dark);
-    }
-    .flavor-price span {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--text-mid);
-    }
-    .btn-comprar {
-      display: block;
-      text-align: center;
-      background: var(--pink);
-      color: #fff;
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 1.5rem;
-      border-radius: 100px;
-      margin-top: 1rem;
-      transition: background 0.25s, transform 0.2s;
-    }
-    .btn-comprar:hover { background: #d45a70; transform: scale(1.02); }
 
     /* ── PACKAGE ── */
     .package {
@@ -424,10 +390,10 @@
 
     .package-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1.5rem;
       width: 100%;
-      max-width: 600px;
+      max-width: 720px;
     }
     .package-item {
       background: rgba(255,255,255,0.055);
@@ -476,25 +442,6 @@
     .btn-instagram:hover { background: var(--brown-mid); transform: scale(1.04); }
     .btn-instagram svg { width: 18px; height: 18px; }
 
-    .btn-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--brown-dark);
-      color: var(--cream);
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1rem 2.5rem;
-      border-radius: 100px;
-      transition: background 0.25s, transform 0.2s;
-    }
-    .btn-email:hover { background: var(--brown-mid); transform: scale(1.04); }
-    .btn-email svg { width: 18px; height: 18px; }
-
     /* ── FOOTER ── */
     footer {
       background: var(--brown-dark);
@@ -507,8 +454,9 @@
       border-top: 1px solid rgba(255,255,255,0.06);
     }
     footer img.footer-logo {
-      width: min(280px, 70vw);
-      border-radius: 0.9rem;
+      width: min(260px, 65vw);
+      /* logo natural colours work on dark bg with slight brightness boost */
+      filter: brightness(0) invert(1) sepia(0.2) saturate(0.5) brightness(0.85);
     }
     footer p {
       font-size: 0.78rem;
@@ -516,6 +464,76 @@
       letter-spacing: 0.06em;
       line-height: 1.9;
       opacity: 0.75;
+    }
+
+    /* ── QUEM É A CRIS ── */
+    .about {
+      background: var(--offwhite);
+      padding: var(--gap) 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .about-inner {
+      max-width: 680px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .about-portrait {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .about-portrait svg { width: 40px; height: 40px; color: var(--caramel); opacity: 0.6; }
+    .about-portrait span {
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--caramel);
+      opacity: 0.7;
+    }
+    .about .eyebrow { margin-bottom: 0.6rem; }
+    .about .section-title { margin-bottom: 2.25rem; }
+    .about p.body {
+      font-size: clamp(1rem, 2vw, 1.08rem);
+      line-height: 1.9;
+      color: var(--text-mid);
+      margin-bottom: 1.4rem;
+    }
+    .about-pull {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      color: var(--brown-dark);
+      line-height: 1.4;
+      margin: 0.6rem 0 1.8rem;
+    }
+    .about-signature {
+      margin-top: 2.5rem;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--text-mid);
+    }
+    .about-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2.1rem;
+      color: var(--pink);
+      margin-top: 0.15rem;
     }
 
     /* ── Responsive ── */
@@ -526,84 +544,84 @@
     }
 
     /* ── PACKAGE LOGO ── */
-    .hero-logo-svg {
-      width: min(560px, 92vw);
-      margin-bottom: 0.4rem;
-      display: block;
-      border-radius: 1.5rem;
-    }
     .hero-pkg-logo {
-      background: #3D180A;
-      border-radius: 1.6rem;
-      border: 3.5px dashed #C97070;
-      padding: 0.65rem 1.5rem 0.55rem;
-      width: min(530px, 90vw);
+      background: #3B1A09;
+      border-radius: 1.5rem;
+      border: 4px dashed #C47272;
+      padding: 0.7rem 1.4rem 0.55rem;
+      width: min(540px, 90vw);
       margin-bottom: 0.5rem;
     }
     .pkg-top {
       text-align: center;
       font-family: 'Lato', sans-serif;
       font-weight: 300;
-      font-size: 0.65rem;
-      letter-spacing: 0.28em;
-      color: #E8C9A0;
+      font-size: 0.66rem;
+      letter-spacing: 0.3em;
+      color: #E8CBA8;
       margin-bottom: 0.05rem;
-      font-style: italic;
     }
     .pkg-row {
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      font-size: clamp(3.5rem, 13vw, 6.2rem);
+      font-size: clamp(3.6rem, 13vw, 6.5rem);
       line-height: 1;
-      gap: 0.01em;
+      padding-bottom: 0.04em;
+      gap: 0.02em;
     }
     .pkg-c, .pkg-kie {
       font-family: 'Lilita One', cursive;
       color: #EDD5B0;
       line-height: 1;
-      display: block;
     }
     .pkg-o {
-      width: 0.72em;
-      height: 0.72em;
+      width: 0.75em;
+      height: 0.75em;
       border-radius: 50%;
       background: #EDD5B0;
       position: relative;
       overflow: hidden;
       flex-shrink: 0;
-      margin-bottom: 0.06em;
+      margin-bottom: 0.03em;
     }
     .pkg-o::before {
       content: '';
       position: absolute;
-      top: -12%;
-      left: 9%;
-      width: 82%;
-      height: 50%;
-      background: #3D180A;
+      top: -6%;
+      left: 12%;
+      width: 76%;
+      height: 52%;
+      background: #3B1A09;
       border-radius: 50%;
     }
+    .pkg-chip {
+      position: absolute;
+      background: #5C2A12;
+      border-radius: 40%;
+    }
+    .pkg-chip.c1 { width:16%; height:11%; bottom:38%; left:20%; transform:rotate(-20deg); }
+    .pkg-chip.c2 { width:14%; height:10%; bottom:24%; left:54%; transform:rotate(15deg);  }
+    .pkg-chip.c3 { width:13%; height: 9%; bottom:13%; left:28%; transform:rotate(-10deg); }
+    .pkg-chip.c4 { width:12%; height: 9%; bottom:14%; left:62%; transform:rotate(20deg);  }
     .pkg-foot {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-top: 0.15rem;
+      margin-top: 0.2rem;
     }
     .pkg-sub {
       font-family: 'Lato', sans-serif;
       font-weight: 300;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      color: #E8C9A0;
-      font-style: italic;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: #E8CBA8;
     }
     .pkg-dacris {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 1.3rem;
-      color: #C85878;
-      line-height: 1;
+      font-size: 1.2rem;
+      color: #C45878;
     }
   </style>
 </head>
@@ -611,18 +629,43 @@
 
   <!-- ══════════ HERO ══════════ -->
   <section class="hero">
-    <img src="logo-canva.svg"
-         alt="Cookie da Cris — bolinhas de massa prontas para assar"
-         class="hero-logo-svg" />
+    <div class="hero-pkg-logo" aria-label="Cookie da Cris — bolinhas de massa prontas para assar">
+      <p class="pkg-top">bolinhas de massa de</p>
+      <div class="pkg-row">
+        <span class="pkg-c">C</span>
+        <div class="pkg-o">
+          <span class="pkg-chip c1"></span>
+          <span class="pkg-chip c2"></span>
+          <span class="pkg-chip c3"></span>
+          <span class="pkg-chip c4"></span>
+        </div>
+        <div class="pkg-o">
+          <span class="pkg-chip c1"></span>
+          <span class="pkg-chip c2"></span>
+          <span class="pkg-chip c3"></span>
+          <span class="pkg-chip c4"></span>
+        </div>
+        <span class="pkg-kie">KIE</span>
+      </div>
+      <div class="pkg-foot">
+        <span class="pkg-sub">prontas para assar</span>
+        <span class="pkg-dacris">da Cris</span>
+      </div>
+    </div>
 
+    <img
+      src="logo.png"
+      alt="Da Cris – sobremesas artesanais"
+      class="hero-logo"
+    />
 
     <p class="hero-tagline">O melhor cookie é o que acabou de sair do forno</p>
 
     <div class="hero-cta">
       <a class="btn-primary"
-         href="https://bjv8sy-8b.myshopify.com"
+         href="https://www.instagram.com/dacrisoficial?igsh=MW45OWI5NGswczB3Yg=="
          target="_blank" rel="noopener noreferrer">
-        Comprar agora
+        Peça agora
       </a>
       <a class="btn-outline" href="#saiba-mais">Saiba mais</a>
     </div>
@@ -669,7 +712,7 @@
       <div class="step">
         <div class="step-num">01</div>
         <h3>Pré-aqueça o forno</h3>
-        <p>190 °C. Forre uma fôrma de bordas baixas.</p>
+        <p>190 °C. Forre uma fôrma de bordas baixas com papel assa-tudo.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
@@ -702,31 +745,41 @@
 
       <div class="flavor-card">
         <div class="flavor-photo">
-          <img src="foto-choc-duplo.jpg" alt="Cookie Chocolate Duplo" />
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+               stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="18"/>
+            <circle cx="15" cy="20" r="3" fill="currentColor" stroke="none"/>
+            <circle cx="27" cy="16" r="2.5" fill="currentColor" stroke="none"/>
+            <circle cx="19" cy="29" r="2" fill="currentColor" stroke="none"/>
+            <circle cx="31" cy="27" r="3" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>foto em breve</span>
         </div>
         <div class="flavor-info">
           <p class="flavor-tag">Sabor 01</p>
           <h3>Chocolate Duplo</h3>
-          <p>Intenso e irresistível: massa de chocolate com pedaços de chocolate meio amargo e gotas de chocolate ao leite. O cookie dos verdadeiros amantes de chocolate.</p>
-          <p class="flavor-price">R$39,90 <span>· 4 bolinhas de 60g</span></p>
-          <a class="btn-comprar"
-             href="https://bjv8sy-8b.myshopify.com/products/cookie-da-cris-chocolate-duplo-bolinhas-prontas-para-assar-4x60g"
-             target="_blank" rel="noopener noreferrer">Comprar agora</a>
+          <p>Intenso e irresistível: massa de chocolate com pedaços generosos de chocolate ao leite e 70% cacau. O cookie dos verdadeiros amantes de chocolate.</p>
+          <span class="flavor-detail">4 unidades · 60g cada</span>
         </div>
       </div>
 
       <div class="flavor-card">
         <div class="flavor-photo">
-          <img src="foto-choc-branco.jpg" alt="Cookie Chocolate Branco Caramelizado" />
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+               stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="18"/>
+            <circle cx="15" cy="20" r="3" fill="currentColor" stroke="none"/>
+            <circle cx="27" cy="16" r="2.5" fill="currentColor" stroke="none"/>
+            <circle cx="19" cy="29" r="2" fill="currentColor" stroke="none"/>
+            <circle cx="31" cy="27" r="3" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>foto em breve</span>
         </div>
         <div class="flavor-info">
           <p class="flavor-tag">Sabor 02</p>
-          <h3>Chocolate Branco</h3>
-          <p>Chocolate branco de alta qualidade, em pedaços e em gotas, para uma experiência ainda mais deliciosa.</p>
-          <p class="flavor-price">R$39,90 <span>· 4 bolinhas de 60g</span></p>
-          <a class="btn-comprar"
-             href="https://bjv8sy-8b.myshopify.com/products/cookie-da-cris-bolinhas-prontas-para-assar-sabor-chocolate-branco"
-             target="_blank" rel="noopener noreferrer">Comprar agora</a>
+          <h3>Baunilha com chocolate branco caramelizado</h3>
+          <p>O chocolate branco elevado a outro patamar — caramelizado, profundo e em perfeita harmonia com a baunilha.</p>
+          <span class="flavor-detail">Chocolate branco caramelizado</span>
         </div>
       </div>
 
@@ -762,6 +815,42 @@
     </div>
   </section>
 
+  <!-- ══════════ QUEM É A CRIS ══════════ -->
+  <section class="about" id="quem-e-a-cris">
+    <div class="about-inner">
+      <div class="about-portrait" aria-label="Foto da Cris em breve">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+             stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="17" r="8"/>
+          <path d="M9 40c0-8.3 6.7-15 15-15s15 6.7 15 15"/>
+        </svg>
+        <span>foto em breve</span>
+      </div>
+
+      <p class="eyebrow">nossa história</p>
+      <h2 class="section-title">Quem é a <em>Cris?</em></h2>
+
+      <p class="body">Muito antes de criar a marca da Cris, eu já adorava demonstrar carinho através da comida.</p>
+
+      <p class="body">Durante anos, amigos, familiares e colegas de trabalho receberam pedaços de bolo, pães, geleias e sobremesas que eu preparava em casa. Quase sempre havia um motivo para cozinhar. E, quando não havia, eu inventava um!</p>
+
+      <p class="body">Ao longo de mais de 20 anos trabalhando na televisão, era para a cozinha que eu corria quando queria desacelerar, celebrar ou simplesmente fazer alguém feliz.</p>
+
+      <p class="about-pull">Foi assim que nasceu a Da Cris.</p>
+
+      <p class="body">Primeiro vieram os bolos, feitos sob encomenda para momentos especiais. E agora, depois de uma pausa de alguns anos, a vontade de cozinhar falou alto novamente. Dessa vez, em forma de cookies.</p>
+
+      <p class="body">Na verdade, as bolinhas de massa de cookie congeladas da Cris nasceram da minha vontade de proporcionar às pessoas uma coisa que eu adoro: a praticidade de ter, em poucos minutos, um cookie quentinho, saboroso e feito com ingredientes que eu conheço e confio, sempre que der vontade! Do freezer pro forno! Porque sim, tem horas que a gente quer, que a gente precisa, que a gente merece uma delícia dessas! E, para mim, nada melhor do que um bom cookie saindo quentinho do forno!</p>
+
+      <p class="body">Testei mais de 15 receitas em busca de sabor, textura e aparência. Por ser um produto artesanal, nosso cookie reage de maneira diferente a cada forno ou airfryer, temperatura e tempo. Normal. Vida real é assim mesmo! Mas uma coisa é certa: a combinação de manteiga noisette, açúcar mascavo, chocolates de excelente qualidade e um toque de flor de sal resultam num cookie de bordas crocantes e miolo macio, muito, muito saboroso!</p>
+
+      <p class="body">Espero que sua cozinha fique perfumada e aquecida, que os cookies da Cris façam parte de momentos gostosos, conversas, risadas, pausas merecidas e, quem sabe, algumas memórias felizes.</p>
+
+      <p class="about-signature">Com carinho,</p>
+      <p class="about-name">Cris</p>
+    </div>
+  </section>
+
   <!-- ══════════ CTA INSTAGRAM ══════════ -->
   <section class="cta">
     <p class="eyebrow">siga a gente</p>
@@ -780,20 +869,11 @@
       </svg>
       @dacrisoficial
     </a>
-    <a class="btn-email" href="mailto:oi@lojadacris.com"
-       onclick="setTimeout(function(){ if(document.hasFocus()){ window.open('https://mail.google.com/mail/?view=cm&to=oi@lojadacris.com','_blank'); } }, 500)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <polyline points="2,4 12,13 22,4"/>
-      </svg>
-      oi@lojadacris.com
-    </a>
   </section>
 
   <!-- ══════════ FOOTER ══════════ -->
   <footer>
-    <img src="logo-canva.svg" alt="Cookie da Cris" class="footer-logo" />
+    <img src="logo.png" alt="Da Cris – sobremesas artesanais" class="footer-logo" />
     <p>
       O melhor cookie é o que acabou de sair do forno.<br/>
       Feito com muito amor — e manteiga noisette.
