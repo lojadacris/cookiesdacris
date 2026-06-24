@@ -536,11 +536,75 @@
       margin-top: 0.15rem;
     }
 
+    /* ── CONTATO ── */
+    .contact {
+      background: var(--cream);
+      padding: var(--gap) 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact .eyebrow { margin-bottom: 0.6rem; text-align: center; }
+    .contact .section-title { text-align: center; margin-bottom: 2.75rem; }
+    .contact-form {
+      width: 100%;
+      max-width: 920px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .contact-form .field-full { grid-column: 1 / -1; }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      color: var(--text-dark);
+      background: var(--offwhite);
+      border: 1px solid var(--cream-dark);
+      border-radius: 0.85rem;
+      padding: 1.15rem 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--text-mid);
+      opacity: 0.7;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--brown-light);
+      box-shadow: 0 0 0 3px rgba(160,96,58,0.12);
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 230px;
+      line-height: 1.6;
+    }
+    .contact-submit {
+      grid-column: 1 / 2;
+      justify-self: start;
+      background: var(--pink);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: 0.85rem;
+      padding: 1rem 2.75rem;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .contact-submit:hover { background: #d45a70; transform: scale(1.03); }
+
     /* ── Responsive ── */
     @media (max-width: 480px) {
       .steps        { grid-template-columns: 1fr; }
       .flavor-grid  { grid-template-columns: 1fr; }
       .package-grid { grid-template-columns: 1fr 1fr; }
+      .contact-form { grid-template-columns: 1fr; }
     }
 
     /* ── PACKAGE LOGO ── */
@@ -690,7 +754,7 @@
     </h2>
 
     <p>
-      Testei uma dezena de receitas, ajustei cada detalhe e cheguei numa massa com ingredientes de excelente qualidade — inclusive manteiga noisette, que dá um sabor mais caramelizado e especial. Agora você pode ter essa experiência em casa, sem esforço.
+      Testei mais de 15 receitas, ajustei cada detalhe e cheguei numa massa com ingredientes de excelente qualidade — inclusive manteiga noisette, que dá um sabor mais caramelizado e especial. Agora você pode ter essa experiência em casa, sem esforço.
     </p>
 
     <ul class="intro-bullets">
@@ -869,6 +933,27 @@
       </svg>
       @dacrisoficial
     </a>
+  </section>
+
+  <!-- ══════════ CONTATO ══════════ -->
+  <section class="contact" id="contato">
+    <p class="eyebrow">fale com a gente</p>
+    <h2 class="section-title">Contato</h2>
+
+    <form class="contact-form" name="contato" method="POST"
+          data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contato" />
+      <p hidden>
+        <label>Não preencha este campo: <input name="bot-field" /></label>
+      </p>
+
+      <input type="text"  name="nome"      placeholder="Nome" autocomplete="name" />
+      <input type="email" name="email"     placeholder="oi@lojadacris.com" autocomplete="email" />
+      <input class="field-full" type="tel" name="telefone" placeholder="Telefone" autocomplete="tel" />
+      <textarea class="field-full" name="comentario" placeholder="Comentário"></textarea>
+
+      <button class="contact-submit" type="submit">Enviar</button>
+    </form>
   </section>
 
   <!-- ══════════ FOOTER ══════════ -->
